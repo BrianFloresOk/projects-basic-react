@@ -3,6 +3,7 @@ import { Home } from '../components/Home'
 import { ProgressBar } from '../components/ProgressBar'
 import { ShowHideMessage } from '../components/ShowHideMessage'
 import { StopWatch } from '../components/StopWatch'
+import { TaskManager } from '../components/TaskManager'
 
 export const routesPublic =  [
     {
@@ -24,5 +25,9 @@ export const routesPublic =  [
     {
       path: "/stop-watch",
       element: <StopWatch />,
+    },
+    {
+      path: "/task-manager",
+      element: <TaskManager />,
     }
   ]

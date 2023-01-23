@@ -26,7 +26,7 @@ export const Header = () => {
                 Progress Bar
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/">
+              <NavDropdown.Item as={Link} to="/task-manager">
                 Task Manager
               </NavDropdown.Item>
             </NavDropdown>

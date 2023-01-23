@@ -87,6 +87,9 @@ export const StopWatch = () => {
     }
 
     const handleVelocity = (vel, velName)  => {
+/*         if(intervalState) {
+            handleStop()
+        } */
         setVelocity(vel)
         setVelocityName(velName)
     }
@@ -97,11 +100,31 @@ export const StopWatch = () => {
                 <Col xs={12} lg={{ span: 6, offset: 3 }} className="text-center">
 
                     <ButtonGroup aria-label="Basic example" className='d-block my-1'>
-                        <Button variant="outline-dark" onClick={() => handleVelocity(1)}>Min</Button>
-                        <Button variant="outline-dark" onClick={() => handleVelocity(2)}>x2</Button>
-                        <Button variant="outline-dark" onClick={() => handleVelocity(4)}>x4</Button>
-                        <Button variant="outline-dark" onClick={() => handleVelocity(6)}>x6</Button>
-                        <Button variant="outline-dark" onClick={() => handleVelocity(10)}>Max</Button>
+                        <Button 
+                            variant="outline-dark"
+                            className={velocityName === "min" && "active"}
+                            onClick={() => handleVelocity(0, "min")}
+                        >Min</Button>
+                        <Button
+                            variant="outline-dark"
+                            className={velocityName === "x2" && "active"}
+                            onClick={() => handleVelocity(2, "x2")}
+                            >x2</Button>
+                        <Button 
+                            variant="outline-dark"
+                            className={velocityName === "x4" && "active"}
+                            onClick={() => handleVelocity(4, "x4")}
+                        >x4</Button>
+                        <Button 
+                            variant="outline-dark"
+                            className={velocityName === "x6" && "active"} 
+                            onClick={() => handleVelocity(6)}
+                            >x6</Button>
+                        <Button 
+                            variant="outline-dark"
+                            className={velocityName === "x10" && "active"} 
+                            onClick={() => handleVelocity(10)}
+                            >Max</Button>
                     </ButtonGroup>
 
                     <ButtonGroup aria-label="Basic example">
