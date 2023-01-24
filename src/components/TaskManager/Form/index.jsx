@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 
 
-export const TaskForm = function ({onChange, inputValues, onSubmit, refForm}) {
+export const TaskForm = function ({onChange, inputValues, onSubmit, refForm, action}) {
     return (
         <Form onSubmit={onSubmit} ref={refForm}>
             <Form.Group className="mb-3">
@@ -32,17 +32,21 @@ export const TaskForm = function ({onChange, inputValues, onSubmit, refForm}) {
                 <Form.Control as={"textarea"}
                     type='text'
                     placeholder="Ingrese una descripción" 
-                    value={inputValues.description}
+                    defaultValue={inputValues.description}
                     onChange={onChange}
                     name='description'
                     />
             </Form.Group>
 
             <Button variant="primary" type="submit" className='mx-2'>
-                Agregar
+                {
+                    action === "create" ? "Agregar" : "Editar"
+                }
             </Button>
             <Button variant="danger" type="reset">
-                Reiniciar
+                {
+                    action === "create" ? "Borrar" : "Cancelar"
+                }
             </Button>
         </Form>
     )
