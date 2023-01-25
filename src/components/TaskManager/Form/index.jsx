@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Image } from 'react-bootstrap';
+import clases from './styles.module.css'
 
-
-export const TaskForm = function ({onChange, inputValues, onSubmit, refForm, action}) {
+export const TaskForm = function ({onChange, inputValues, onSubmit, refForm, action, onReset}) {
     return (
         <Form onSubmit={onSubmit} ref={refForm}>
             <Form.Group className="mb-3">
@@ -12,11 +12,13 @@ export const TaskForm = function ({onChange, inputValues, onSubmit, refForm, act
                     placeholder="Ingresar título" 
                     value={inputValues.title}
                     onChange={onChange}
+                    onReset={onReset}
                     name='title'
                     />
             </Form.Group>
 
             <Form.Group className="mb-3">
+                <Image src={inputValues.image} alt={inputValues.image} className={clases["img-preview"]}/>
                 <Form.Label>Imagen</Form.Label>
                 <Form.Control 
                     type="text"
@@ -43,7 +45,7 @@ export const TaskForm = function ({onChange, inputValues, onSubmit, refForm, act
                     action === "create" ? "Agregar" : "Editar"
                 }
             </Button>
-            <Button variant="danger" type="reset">
+            <Button variant="danger" type='reset'>
                 {
                     action === "create" ? "Borrar" : "Cancelar"
                 }
